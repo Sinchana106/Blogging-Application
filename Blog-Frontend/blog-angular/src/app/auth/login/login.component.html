@@ -1,0 +1,18 @@
+<div class="container bg-light  position-absolute top-50 start-50 translate-middle col-md-5" >
+    <p class="fs-1 text-center">Login</p>
+    <form class="form-signin" [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+        <div class="form-group pb-2">
+            <label for="inputUsername">Username:</label>
+            <input type="text" id="inputUsername" class="form-control" required="" autofocus="" [formControlName]="'username'">
+        </div>
+
+        <div class="form-group pb-2">
+            <label for="inputPassword">Password:</label>
+            <input type="text" id="inputPassword" class="form-control" required=""  [formControlName]="'password'">
+        </div>
+        <div class="text-center"><input type="Submit" class="btn btn-lg btn-success pt-2 "></div>
+        
+    </form>
+</div>
+
+

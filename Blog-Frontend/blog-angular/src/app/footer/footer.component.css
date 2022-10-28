@@ -1,0 +1,11 @@
+.footer{
+   background-color: royalblue;
+   position: fixed;
+   bottom: 0;
+   width:100%;
+}
+.footer-content{
+    color: aliceblue;
+    text-align: center;
+    padding: 20px;
+}
