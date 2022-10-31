@@ -11,6 +11,9 @@ import { RegisterSuccessComponent } from './auth/register-success/register-succe
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { AddPostComponent } from './add-post/add-post.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +22,8 @@ import { RouterModule } from '@angular/router';
     RegisterComponent,
     LoginComponent,
     RegisterSuccessComponent,
+    HomeComponent,
+    AddPostComponent,
    
     
   ],
@@ -30,7 +35,8 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     RouterModule.forRoot([
       {path:'register-success',component:RegisterSuccessComponent}
-    ])
+    ]),
+    EditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

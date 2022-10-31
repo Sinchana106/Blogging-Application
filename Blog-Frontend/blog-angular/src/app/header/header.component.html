@@ -6,7 +6,10 @@
                     <img class="icon" src="assets/Images/icon.png" alt="">
                     <h1><a href="#" class="title">CTS Blog</a></h1>
                 </div>
-                <div class="col-md-6">
+                <div class=" col-md-3" *ngIf="checklogin()">
+                   <a routerLink="/add-post" class="addpost">Add Post</a> 
+                </div>
+                <div class="col-md-3">
                     <a routerLink="/register" class="register">Register</a>
                     <a routerLink="/login" class="login">Login</a>
                 </div>

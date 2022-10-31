@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { LoginPayload } from 'src/app/login-payload';
 import { AuthService } from '../auth.service';
-
+import {Router} from "@angular/router";
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginPayload:LoginPayload;
   token!:string;
   
-  constructor(private formBuilder:FormBuilder, private authService:AuthService) { 
+  constructor(private formBuilder:FormBuilder, private authService:AuthService,private router:Router) { 
     this.loginForm=this.formBuilder.group({
       username: '',
       password:''
@@ -34,15 +35,21 @@ export class LoginComponent implements OnInit {
     console.log(this.loginPayload.username);
     console.log(this.loginPayload.password)
     this.login();
-      
+     this.router.navigateByUrl("/home"); 
   }
 
   login(){
     this.authService.login(this.loginPayload).subscribe((data)=>{
-      console.log(data);
+      try {
+        console.log(data+123);
       console.log("Login successful");
       localStorage.setItem('token',data);
-    });
+      } catch (error) {
+        console.log(error);
+      }
+     
+
+  });
     
     
 
