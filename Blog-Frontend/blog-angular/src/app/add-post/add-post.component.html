@@ -1,1 +1,18 @@
-<p>add-post works!</p>
+<div class="container">
+    <h1 class="text-muted pd-2">Hey, add some content...</h1>
+    <hr>
+    <form [formGroup]="addPostForm" (ngSubmit)="addPost()">
+        <div class="form-group pb-2">
+            <label for="post-title">Title :</label>
+            <input type="text" class="form-control" [formControlName]="'title'" class="post-title" placeholder="Enter title for post !" autofocus required>
+        </div>
+        <div class="post-content form-group pb-2">
+            <label for="post-body">Body :</label>
+            <editor  [init]="{plugin:'link'}" [formControlName]="'body'">               
+            </editor>
+
+        </div>
+        <div class="form-group pb-1">
+            <button class="btn btn-success" type="submit">Add Post</button></div>
+    </form>
+</div>
