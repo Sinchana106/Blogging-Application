@@ -1,1 +1,13 @@
-<p>home works!</p>
+<div class="container">
+    <div class="container">
+        <div class="row" *ngFor="let post of postArray">
+            <div>
+                <h3><a href="post/{id}">{{post.title}}</a></h3>
+            </div>
+            <p [innerHTML]="post.content"></p>
+            <div>
+                <button><a href="post/{id}"> Read More>></a></button>
+            </div>
+        </div>
+    </div>
+</div>

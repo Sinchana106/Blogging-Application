@@ -1,5 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Postpayload } from './postpayload';
 
 @Injectable({
@@ -13,5 +14,9 @@ export class AddpostService {
   
   public addpost(postPayload:Postpayload){
   return this.httpClient.post(this.url+'post',postPayload,{headers:{'Authorization':'Bearer '+localStorage.getItem('token')!}})
+  }
+
+  public getAllPost():Observable<Array<Postpayload>>{
+    return this.httpClient.get<Array<Postpayload>>(this.url+'post',{headers:{'Authorization':'Bearer '+localStorage.getItem('token')!}});
   }
 }
