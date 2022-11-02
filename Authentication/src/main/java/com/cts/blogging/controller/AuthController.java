@@ -57,4 +57,10 @@ public class AuthController {
 
 		
 	}
+	
+	@GetMapping("/username")
+	public String getUserName(@RequestHeader(name="Authorization") String token1 ) {
+		System.out.println(token1.substring(7));
+		return jwtProvider.extractUsername(token1.substring(7));
+	}
 }

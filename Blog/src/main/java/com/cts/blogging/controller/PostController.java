@@ -24,7 +24,7 @@ import com.cts.blogging.service.PostService;
 
 @RestController
 @RequestMapping("blog")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PostController {
 
 	@Autowired
@@ -49,6 +49,7 @@ public class PostController {
 	}
 	@GetMapping("/post")
 	public ResponseEntity<List<PostDto>> showAllPost(@RequestHeader(name = "Authorization") String token) {
+		System.out.println(validate(token).getBody());
 		if(validate(token).getBody()) {
 			List<PostDto> dtos=postService.getAllPost();
 			return new ResponseEntity(dtos,HttpStatus.OK);

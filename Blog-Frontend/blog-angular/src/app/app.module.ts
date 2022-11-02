@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     RegisterSuccessComponent,
     HomeComponent,
     AddPostComponent,
+    PostDetailComponent,
    
     
   ],

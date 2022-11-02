@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { LoginPayload } from 'src/app/login-payload';
 import { AuthService } from '../auth.service';
 import {Router} from "@angular/router";
-import { catchError } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   loginForm!:FormGroup;
   loginPayload:LoginPayload;
   token!:string;
+  
   
   constructor(private formBuilder:FormBuilder, private authService:AuthService,private router:Router) { 
     this.loginForm=this.formBuilder.group({
@@ -33,9 +34,10 @@ export class LoginComponent implements OnInit {
     this.loginPayload.username=this.loginForm.get('username')?.value;
     this.loginPayload.password=this.loginForm.get('password')?.value;
     console.log(this.loginPayload.username);
-    console.log(this.loginPayload.password)
+    console.log(this.loginPayload.password);
+    
     this.login();
-     this.router.navigateByUrl("/home"); 
+    console.log(this.getUsername());
   }
 
   login(){
@@ -44,15 +46,28 @@ export class LoginComponent implements OnInit {
         console.log(data+123);
       console.log("Login successful");
       localStorage.setItem('token',data);
+   
+      this.router.navigateByUrl("/home"); 
+      
       } catch (error) {
         console.log(error);
+        this.router.navigateByUrl("/login"); 
       }
      
 
   });
+
+ 
     
+  }
+  getUsername(){
+    this.authService.getUsername().subscribe(data=>{
+      console.log(data);
+      localStorage.setItem('username',data);
+    });
     
+  }
 
   }
-}
+
 

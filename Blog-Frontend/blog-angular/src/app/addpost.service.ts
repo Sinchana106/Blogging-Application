@@ -19,4 +19,8 @@ export class AddpostService {
   public getAllPost():Observable<Array<Postpayload>>{
     return this.httpClient.get<Array<Postpayload>>(this.url+'post',{headers:{'Authorization':'Bearer '+localStorage.getItem('token')!}});
   }
+
+  public getPostById(id:number):Observable<Postpayload>{
+    return this.httpClient.get<Postpayload>(this.url+"post/"+id,{headers:{'Authorization':'Bearer '+localStorage.getItem('token')!}});
+  }
 }

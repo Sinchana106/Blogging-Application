@@ -26,4 +26,8 @@ export class AuthService {
   public isloggedin():boolean{
     return localStorage.getItem("token")!=null;
   }
+
+  public getUsername():Observable<string>{
+    return this.httpClient.get<string>(this.url+"/username",{headers:{'Authorization':'Bearer '+localStorage.getItem('token')}});
+  }
 }

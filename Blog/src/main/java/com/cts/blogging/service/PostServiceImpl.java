@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.cts.blogging.dto.PostDto;
 import com.cts.blogging.exception.PostNotFound;
+import com.cts.blogging.feign.AuthFeign;
 import com.cts.blogging.model.PostModel;
 import com.cts.blogging.repository.PostRepository;
 
@@ -20,6 +21,7 @@ public class PostServiceImpl implements PostService {
 	@Override
 	public PostModel createPost(PostDto dto) {
 		PostModel model = mapPostDtoToModel(dto);
+
 		return repository.save(model);
 	}
 
@@ -55,7 +57,5 @@ public class PostServiceImpl implements PostService {
 		postDto.setId(model.getId());
 		return postDto;
 	}
-
-	
 
 }
