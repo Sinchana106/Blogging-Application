@@ -20,4 +20,9 @@ export class HeaderComponent implements OnInit {
   console.log(this.authService.isloggedin());
   return this.authService.isloggedin();
 }
+
+public logout(){
+ this.authService.logout();
+  
+}
 }

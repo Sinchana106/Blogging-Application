@@ -8,8 +8,9 @@
                 </div>
                 <div class=" col-md-3" *ngIf="checklogin()">
                    <a routerLink="/add-post" class="addpost">Add Post</a> 
+                   <a href="" class="addpost" (click)="logout()">Log Out</a>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" *ngIf="!checklogin()" >
                     <a routerLink="/register" class="register">Register</a>
                     <a routerLink="/login" class="login">Login</a>
                 </div>

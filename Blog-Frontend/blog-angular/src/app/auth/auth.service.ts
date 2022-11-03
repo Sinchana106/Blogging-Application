@@ -32,4 +32,10 @@ export class AuthService {
     //console.log(this.httpClient.get<string>(this.url+"/username",{headers:{'Authorization':'Bearer '+localStorage.getItem('token')}}));
     return this.httpClient.get<string>(this.url+"/username",{headers:{'Authorization':'Bearer '+localStorage.getItem('token')},responseType:'text' as 'json'});
   }
+
+  public logout(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('username');
+  }
 }
