@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AddpostService } from '../addpost.service';
 import { Postpayload } from '../postpayload';
@@ -11,17 +11,19 @@ import { Postpayload } from '../postpayload';
 export class PostDetailComponent implements OnInit {
 
   postPayload!:Postpayload;
-  id!:number;
+  id:number=0;
+  @Input() incoming_data:string="";
   constructor(private postService:AddpostService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params)=>{
+    this.route.params.subscribe(params=>{
       this.id=params['id'];
-    })
+    });
    this.postService.getPostById(this.id).subscribe(data=>{
       this.postPayload=data;
-      this.postPayload.username!=localStorage.getItem('username');
-   });
-  }
+     // this.postPayload.username=this.incoming_data;
+      this.postPayload.userName!=localStorage.getItem('username');
+      
+  });}
 
 }

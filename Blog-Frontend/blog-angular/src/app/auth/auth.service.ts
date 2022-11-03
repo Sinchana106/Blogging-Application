@@ -28,6 +28,8 @@ export class AuthService {
   }
 
   public getUsername():Observable<string>{
-    return this.httpClient.get<string>(this.url+"/username",{headers:{'Authorization':'Bearer '+localStorage.getItem('token')}});
+    console.log("inside getusername");
+    //console.log(this.httpClient.get<string>(this.url+"/username",{headers:{'Authorization':'Bearer '+localStorage.getItem('token')}}));
+    return this.httpClient.get<string>(this.url+"/username",{headers:{'Authorization':'Bearer '+localStorage.getItem('token')},responseType:'text' as 'json'});
   }
 }

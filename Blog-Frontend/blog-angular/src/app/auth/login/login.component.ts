@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     console.log(this.loginPayload.password);
     
     this.login();
-    console.log(this.getUsername());
+   
   }
 
   login(){
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
         console.log(data+123);
       console.log("Login successful");
       localStorage.setItem('token',data);
-   
+      this.getUsername();
       this.router.navigateByUrl("/home"); 
       
       } catch (error) {
@@ -61,10 +61,15 @@ export class LoginComponent implements OnInit {
     
   }
   getUsername(){
-    this.authService.getUsername().subscribe(data=>{
+    this.authService.getUsername().subscribe((data)=>{
+      try{
       console.log(data);
-      localStorage.setItem('username',data);
-    });
+      localStorage.setItem('userName',data);
+    }
+  catch(error){
+    console.log(error);
+  }
+  });
     
   }
 

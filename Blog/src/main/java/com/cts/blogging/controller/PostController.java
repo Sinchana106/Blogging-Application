@@ -62,6 +62,7 @@ public class PostController {
 	public ResponseEntity<PostDto> showPostById(@RequestHeader(name = "Authorization") String token,@PathVariable int id) {
 		if(validate(token).getBody()) {
 			PostDto dto=postService.getPostById(id);
+			System.out.println(dto.toString());
 			return new ResponseEntity<PostDto>(dto,HttpStatus.OK);
 		}
 		else {

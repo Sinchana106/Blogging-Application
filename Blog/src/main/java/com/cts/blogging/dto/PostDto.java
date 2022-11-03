@@ -5,12 +5,16 @@ public class PostDto {
 	private int id;
 	private String title;
 	private String content;
-	private String username;
+	private String userName;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	@Override
+	public String toString() {
+		return "PostDto [id=" + id + ", title=" + title + ", content=" + content + ", userName=" + userName + "]";
 	}
 	public String getTitle() {
 		return title;
@@ -24,10 +28,10 @@ public class PostDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getUsername() {
-		return username;
+	public String getuserName() {
+		return userName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setuserName(String userName) {
+		this.userName = userName;
 	}
 }

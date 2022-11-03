@@ -42,7 +42,9 @@ public class PostServiceImpl implements PostService {
 		PostModel postModel = new PostModel();
 		postModel.setTitle(dto.getTitle());
 		postModel.setContent(dto.getContent());
-		postModel.setUserName(dto.getUsername());
+		postModel.setUserName(dto.getuserName());
+		System.out.println(dto.toString());
+		System.out.println(postModel.getUserName());
 		postModel.setCreatedOn(Instant.now());
 		postModel.setUpdatedOn(Instant.now());
 		return postModel;
@@ -53,7 +55,7 @@ public class PostServiceImpl implements PostService {
 		PostDto postDto = new PostDto();
 		postDto.setTitle(model.getTitle());
 		postDto.setContent(model.getContent());
-		postDto.setUsername(model.getUserName());
+		postDto.setuserName(model.getUserName());
 		postDto.setId(model.getId());
 		return postDto;
 	}

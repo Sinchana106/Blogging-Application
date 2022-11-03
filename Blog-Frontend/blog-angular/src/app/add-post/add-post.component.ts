@@ -14,6 +14,7 @@ export class AddPostComponent implements OnInit {
   title=new FormControl('');
   body=new FormControl('');
   postpayload:Postpayload;
+  userName=localStorage.getItem('userName');
   constructor(private adpost:AddpostService,private router:Router) {
     this.addPostForm=new FormGroup({
       title:this.title,
@@ -24,7 +25,7 @@ export class AddPostComponent implements OnInit {
       id:'',
       title:'',
       content:'',
-      username:''
+      userName:''
     }
 
    }
@@ -34,8 +35,12 @@ export class AddPostComponent implements OnInit {
 addPost(){
 this.postpayload.title=this.addPostForm.get('title')?.value;
 this.postpayload.content=this.addPostForm.get('body')?.value;
+
+console.log(localStorage.getItem('userName'));
+this.postpayload.userName=this.userName!;
+
 this.adpost.addpost(this.postpayload).subscribe(data=>{
-  console.log(data);
+  
   this.router.navigateByUrl('/home');
 });
 }
