@@ -1,12 +1,11 @@
-<div class="container">
 
-    <div class="title">
-        <h3 [innerHTML]="postPayload.title"></h3>
+<div class="container mt-5">
+    <div class="card" style="width:100%">
+        <div class="card-body"><p class="time"></p>
+            <h4 class="card-title">{{postPayload.title}}</h4>
+            <p class="card-text" [innerHTML]="postPayload.content"></p>
+        </div>
     </div>
-    <div class="body">
-        <p [innerHTML]="postPayload.content"></p>
-        {{postPayload|json}}
-    </div>
-    <div class="username">
-        <p >{{postPayload.userName}}</p>   </div>
+    <p>Posted by {{postPayload.userName}}</p>
 </div>
+

@@ -1,13 +1,9 @@
-<div class="container">
-    <div class="container">
-        <div class="row" *ngFor="let post of postArray">
-            <div>
-                <h3><a href="/post-detail/{{post.id}}">{{post.title}}</a></h3>
-            </div>
-            <p [innerHTML]="post.content"></p>
-            <div>
-                <button><a href="/post-detail/{{post.id}}"> Read More>></a></button>
-            </div>
+<div class="container mt-3" *ngFor="let post of postArray">
+    <div class="card" style="width:1000px">
+        <div class="card-body">
+            <p>{{post.updatedOn}}</p>
+            <h4 class="card-title"><a href="/post-detail/{{post.id}}">{{post.title}}</a></h4>
+            <p class="card-text" [innerHTML]="post.content"></p>
+            <a href="/post-detail/{{post.id}}" class="btn btn-primary">Read More</a>
         </div>
     </div>
-</div>

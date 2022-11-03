@@ -1,5 +1,6 @@
+
 export class Postpayload {
-    constructor(public id:string,public title:string,public content:string,public userName:string){
+    constructor(public id:string,public title:string,public content:string,public userName:string,public updatedOn:any){
 
     }
 }

@@ -25,7 +25,8 @@ export class AddPostComponent implements OnInit {
       id:'',
       title:'',
       content:'',
-      userName:''
+      userName:'',
+      updatedOn:''
     }
 
    }
@@ -35,6 +36,7 @@ export class AddPostComponent implements OnInit {
 addPost(){
 this.postpayload.title=this.addPostForm.get('title')?.value;
 this.postpayload.content=this.addPostForm.get('body')?.value;
+this.postpayload.updatedOn=new Date();
 
 console.log(localStorage.getItem('userName'));
 this.postpayload.userName=this.userName!;
